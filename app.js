@@ -20,7 +20,7 @@ let numberStart = document.querySelector("#number");
 //function for wrapper screen
 scoreBoard.innerHTML = score;
 
-numberStart.textContent = "Click Any Button !!!";
+numberStart.textContent = start();
 startBtn.addEventListener("click", () => {
 	wrapperScrren.style.display = "none";
 	mainscreen.style.display = "flex";
@@ -98,7 +98,7 @@ function check() {
 function exit() {
 	score = 0;
 	scoreBoard.innerText = score;
-	numberStart.textContent = "Click Any Button !!!";
+	numberStart.textContent = start();
     wrapperScrren.style.display = "flex";
 	mainscreen.style.display = "none";
 }
