@@ -11,10 +11,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 2rem;
     cursor: not-allowed;
 }
 
-#startBtn {
+#startBtn, #guideBtn {
     width: 10.45rem;
     height: 3rem;
     font-size: 1.5rem;

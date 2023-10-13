@@ -3,6 +3,7 @@ const startBtn = document.querySelector("#startBtn");
 const wrapperScrren = document.querySelector(".wrapper");
 const exitBtn = document.querySelector("#exitBtn");
 const mainscreen = document.querySelector(".main-screen");
+const guideBtn = document.querySelector("#guideBtn");
 
 //for game
 
@@ -15,6 +16,7 @@ const evenBtn = document.querySelector("#evenBtn");
 const oddBtn = document.querySelector("#oddBtn");
 const scoreBoard = document.querySelector("#userScore");
 let numberStart = document.querySelector("#number");
+// const nextBtn = document.querySelector("#nextBtn");
 // let ramNum = Math.floor(Math.random() *10);
 
 //function for wrapper screen
@@ -38,7 +40,7 @@ exitBtn.addEventListener("click", () => {
 	}).then((result) => {
 		if (result.isConfirmed) {
 			Swal.fire("EXIT!", "Don't leave me alone.", "success");
-            exit()
+			exit();
 		}
 	});
 });
@@ -57,6 +59,10 @@ function ev() {
 function od() {
 	return "odd";
 }
+
+// nextBtn.addEventListener("click", function() {
+// 	start();
+// })
 
 evenBtn.addEventListener("click", function () {
 	let even = ev();
@@ -99,6 +105,20 @@ function exit() {
 	score = 0;
 	scoreBoard.innerText = score;
 	numberStart.textContent = start();
-    wrapperScrren.style.display = "flex";
+	wrapperScrren.style.display = "flex";
 	mainscreen.style.display = "none";
 }
+
+guideBtn.addEventListener("click", function () {
+	Swal.fire({
+		title: "Guide",
+		text: "The game start You can see the number but you can guess first the number.You guess next number is even or odd. If you can guess next number is right then you get one point but if you wrong , you lose your original point",
+		textOne: "1. You guess next number is even or odd",
+		showClass: {
+			popup: "animate__animated animate__bounceInDown",
+		},
+		hideClass: {
+			popup: "animate__animated animate__bounceOutUp",
+		},
+	});
+});
