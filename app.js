@@ -12,32 +12,31 @@ const oddBtn = document.querySelector("#oddBtn");
 const scoreBoard = document.querySelector("#userScore");
 let numberStart = document.querySelector("#number");
 
-// startBtn.addEventListener("click", () => {
-// 	wrapperScrren.style.display = "none";
-// 	mainscreen.style.display = "flex";
-// });
+startBtn.addEventListener("click", () => {
+	wrapperScrren.style.display = "none";
+	mainscreen.style.display = "flex";
+});
 
-// exitBtn.addEventListener("click", () => {
-// 	Swal.fire({
-// 		title: "Are you sure?",
-// 		text: "Just Play It's a game, Bro!!!",
-// 		icon: "question",
-// 		showCancelButton: true,
-// 		confirmButtonColor: "#f00",
-// 		cancelButtonColor: "#3085d6",
-// 		confirmButtonText: "Yes, I exit!",
-// 	}).then((result) => {
-// 		if (result.isConfirmed) {
-// 			Swal.fire("EXIT!", "Don't leave me alone.", "success");
-// 			exit();
-// 		}
-// 	});
-// });
+exitBtn.addEventListener("click", () => {
+	Swal.fire({
+		title: "Are you sure?",
+		text: "Just Play It's a game, Bro!!!",
+		icon: "question",
+		showCancelButton: true,
+		confirmButtonColor: "#f00",
+		cancelButtonColor: "#3085d6",
+		confirmButtonText: "Yes, I exit!",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			Swal.fire("EXIT!", "Don't leave me alone.", "success");
+			exit();
+		}
+	});
+});
 
 function exit() {
 	score = 0;
 	scoreBoard.innerText = score;
-	numberStart.textContent = start();
 	wrapperScrren.style.display = "flex";
 	mainscreen.style.display = "none";
 }
@@ -45,7 +44,7 @@ function exit() {
 guideBtn.addEventListener("click", function () {
 	Swal.fire({
 		title: "Guide",
-		text: "The game start You can see the number but you can guess first the number.You guess next number is even or odd. If you can guess next number is right then you get one point but if you wrong , you lose from your original points",
+		text: "The game is started, you see the number and guess even or odd.If your choice is right, you get one point but it's wrong , lose one point",
 		textOne: "1. You guess next number is even or odd",
 		showClass: {
 			popup: "animate__animated animate__bounceInDown",
@@ -66,51 +65,46 @@ const odd = "odd";
 scoreBoard.textContent = score;
 
 //game functionality
-let randomNumber = Math.floor(Math.random() * 10);
+let randomNumber = Math.floor(Math.random() * 1000);
+numberStart.textContent = randomNumber;
 
 function autoGenerateNumber() {
-	randomNumber = Math.floor(Math.random() * 10);
-	console.log("autoGenerateNumber " + randomNumber);
+	randomNumber = Math.floor(Math.random() * 1000);
 	return randomNumber;
 }
 
-numberStart.textContent = autoGenerateNumber();
-
-let evenChecked = randomNumber;
 evenBtn.addEventListener("click", function () {
-	if (evenChecked % 2 === 0) {
+	if (randomNumber % 2 === 0) {
 		score++;
 		scoreBoard.innerText = score;
-		console.log("hello");
+		randomNumber = Math.floor(Math.random() * 1000)
+		numberStart.textContent = `${randomNumber}`
 	} else {
 		score--;
 		scoreBoard.innerText = score;
-		console.log("ball");
+		randomNumber = Math.floor(Math.random() * 1000)
+		numberStart.textContent = `${randomNumber}`
 	}
+
 });
 
 oddBtn.addEventListener("click", function () {
-	if (evenChecked % 2 !== 0) {
+	if (randomNumber % 2 !== 0) {
 		score++;
 		scoreBoard.innerText = score;
+		randomNumber = Math.floor(Math.random() * 1000)
+		numberStart.textContent = `${randomNumber}`
 	} else {
 		score--;
 		scoreBoard.innerText = score;
+		randomNumber = Math.floor(Math.random() * 1000)
+		numberStart.textContent = `${randomNumber}`
 	}
+
 });
 
-// 	let checkNumber = randomNumber;
-// 	console.log("check number "+checkNumber);
-// const checkEvenOrOdd = () => {
-// 	if (checkNumber % 2 === 0) {
-// 		console.log("even " + checkNumber);
-// 		return "even";
-// 	} else {
-// 		console.log("odd " + checkNumber);
-// 		return "odd";
-// 	}
-// }
 
-// console.log("final check "+checkEvenOrOdd());
-// let checked  = checkEvenOrOdd();
-// console.log(checked);
+//Game over functionality
+
+//point increasement indicator icon and decreasement indicator icon
+
