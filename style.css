@@ -8,7 +8,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 49, 49, 0.232);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -27,13 +27,13 @@
     transition: all .3s ease-in-out;
 }
 
-#startBtn:hover {
+#startBtn:hover,#guideBtn:hover {
     background-color: #b3b3b3;
     color: #fff;
 }
 
 .main-screen {
-    display: none;
+    display: flex;
     width: 100vw;
     height: 100vh;
     background-color: #b3b3b3;
