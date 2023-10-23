@@ -12,8 +12,6 @@ const oddBtn = document.querySelector("#oddBtn");
 const scoreBoard = document.querySelector("#userScore");
 let numberStart = document.querySelector("#number");
 
-
-
 // startBtn.addEventListener("click", () => {
 // 	wrapperScrren.style.display = "none";
 // 	mainscreen.style.display = "flex";
@@ -61,38 +59,58 @@ guideBtn.addEventListener("click", function () {
 //for game
 let number = 0;
 let score = 0;
+const even = "even";
+const odd = "odd";
 
 //function for wrapper screen
-scoreBoard.innerHTML = score;
+scoreBoard.textContent = score;
 
 //game functionality
-let randomNumber  = Math.floor(Math.random() * 10);
-console.log(randomNumber);
+let randomNumber = Math.floor(Math.random() * 10);
 
 function autoGenerateNumber() {
-	let randomFunction = randomNumber;
-	console.log(randomFunction);
-	return randomFunction;
+	randomNumber = Math.floor(Math.random() * 10);
+	console.log("autoGenerateNumber " + randomNumber);
+	return randomNumber;
 }
-console.log(autoGenerateNumber());
 
-const checkEvenOrOdd = () => {
-	let checkNumber = randomNumber;
-	if (checkNumber % 2 === 0) {
-		console.log("even " + checkNumber);
-		return "even";
+numberStart.textContent = autoGenerateNumber();
+
+let evenChecked = randomNumber;
+evenBtn.addEventListener("click", function () {
+	if (evenChecked % 2 === 0) {
+		score++;
+		scoreBoard.innerText = score;
+		console.log("hello");
 	} else {
-		console.log("odd " + checkNumber);
-		return "odd";
+		score--;
+		scoreBoard.innerText = score;
+		console.log("ball");
 	}
-}
+});
 
-let evenOrOdd = checkEvenOrOdd();
+oddBtn.addEventListener("click", function () {
+	if (evenChecked % 2 !== 0) {
+		score++;
+		scoreBoard.innerText = score;
+	} else {
+		score--;
+		scoreBoard.innerText = score;
+	}
+});
 
+// 	let checkNumber = randomNumber;
+// 	console.log("check number "+checkNumber);
+// const checkEvenOrOdd = () => {
+// 	if (checkNumber % 2 === 0) {
+// 		console.log("even " + checkNumber);
+// 		return "even";
+// 	} else {
+// 		console.log("odd " + checkNumber);
+// 		return "odd";
+// 	}
+// }
 
-
-
-
-
-
-
+// console.log("final check "+checkEvenOrOdd());
+// let checked  = checkEvenOrOdd();
+// console.log(checked);
